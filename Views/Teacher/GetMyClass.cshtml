@@ -1,0 +1,31 @@
+﻿@model FallowUP.Models.TEACHERCLASS
+@{
+    ViewBag.Title = "GetMyClass";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h2>GetMyClass</h2>
+
+
+@using (Html.BeginForm("UpdateMyClass", "Teacher", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.NOTEID)
+        <p class="text-danger">PRIMARY KEY!</p>
+        @Html.TextBoxFor(m => m.NOTEID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.STUDENTID)
+        @Html.TextBoxFor(m => m.STUDENTID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.TEACHERID)
+        @Html.TextBoxFor(m => m.TEACHERID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.CLASSID)
+        @Html.TextBoxFor(m => m.CLASSID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.NOTE)
+        @Html.TextBoxFor(m => m.NOTE, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-warning">GÜNCELLE</button>
+    </div>
+}

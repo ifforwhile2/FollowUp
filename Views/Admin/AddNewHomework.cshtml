@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "AddNewHomework";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Yeni Ödev Ekle</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>DERS ID</label>
+        <input type="text" name="CLASSID" class="form-control" />
+    </div>
+    <div>
+        <label>DERS ADI</label>
+        <input type="text" name="CLASSNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN ID</label>
+        <input type="text" name="TEACHERID" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN AD</label>
+        <input type="text" name="TEACHERNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN SOYAD</label>
+        <input type="text" name="TEACHERSURNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖDEV ADI</label>
+        <input type="text" name="HOMEWORKNAME" class="form-control" />
+    </div>
+
+    <div>
+        <label>ÖDEV</label>
+        <input type="text" name="HOMEWORK" class="form-control" />
+    </div>
+
+    <div>
+        <label>BAŞLANGIÇ TARİHİ</label>
+        <input type="text" name="STARTDATE" class="form-control" />
+    </div>
+    <div>
+        <label>BİTİŞ TARİHİ</label>
+        <input type="text" name="FINISHDATE" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Ödev Ekle</button>
+    </div>
+</form>

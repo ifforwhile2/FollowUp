@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a33385c02f94afdbe6b8be95b1e90c1" Name="Diagram1">
+        <EntityTypeShape EntityType="FollowUpModel13.HOMEWORK" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.MESSAGES" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.NOTES" Width="1.5" PointX="8.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.STUDENTCLASS" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.STUDENTHOMEWORK" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.TEACHERCLASS" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FollowUpModel13.USERS" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="FollowUpModel13.FK_HOMEWORK_TEACHERCLASS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_HOMEWORK_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_STUDENTHOMEWORK_HOMEWORK" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_MESSAGES_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_MESSAGES_USERS1" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_NOTES_TEACHERCLASS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_NOTES_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_NOTES_USERS1" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_STUDENTCLASS_TEACHERCLASS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_STUDENTCLASS_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_STUDENTHOMEWORK_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_STUDENTHOMEWORK_USERS1" ManuallyRouted="false" />
+        <AssociationConnector Association="FollowUpModel13.FK_TEACHERCLASS_USERS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

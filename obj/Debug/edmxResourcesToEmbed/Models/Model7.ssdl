@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FollowUpModel6.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="HOMEWORK">
+    <Key>
+      <PropertyRef Name="HOMEWORKID" />
+    </Key>
+    <Property Name="HOMEWORKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLASSID" Type="int" Nullable="false" />
+    <Property Name="TEACHERID" Type="int" Nullable="false" />
+    <Property Name="HOMEWORKNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOMEWORK" Type="image" />
+    <Property Name="STARTDATE" Type="date" />
+    <Property Name="FINISHDATE" Type="date" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MESSAGES">
+    <Key>
+      <PropertyRef Name="MESSAGEID" />
+    </Key>
+    <Property Name="MESSAGEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FROMID" Type="int" Nullable="false" />
+    <Property Name="TOID" Type="int" Nullable="false" />
+    <Property Name="MESSAGE" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="DATE" Type="date" />
+    <Property Name="TIME" Type="time" Precision="7" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NOTES">
+    <Key>
+      <PropertyRef Name="NOTEID" />
+    </Key>
+    <Property Name="NOTEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STUDENTID" Type="int" Nullable="false" />
+    <Property Name="NOTE" Type="int" Nullable="false" />
+    <Property Name="CLASSID" Type="int" Nullable="false" />
+    <Property Name="TEACHERID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FollowUp.dbo.STUDENTCLASS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="STUDENTCLASS">
+    <Key>
+      <PropertyRef Name="STUDENTID" />
+      <PropertyRef Name="CLASSID" />
+      <PropertyRef Name="CLASSNAME" />
+      <PropertyRef Name="CLASSPASSWORD" />
+    </Key>
+    <Property Name="STUDENTID" Type="int" Nullable="false" />
+    <Property Name="CLASSID" Type="int" Nullable="false" />
+    <Property Name="CLASSNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CLASSPASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TEACHERCLASS">
+    <Key>
+      <PropertyRef Name="CLASSID" />
+    </Key>
+    <Property Name="CLASSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEACHERID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_HOMEWORK_TEACHERCLASS">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="HOMEWORK" Type="Self.HOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="HOMEWORK">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOMEWORK_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="HOMEWORK" Type="Self.HOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HOMEWORK">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MESSAGES" Type="Self.MESSAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="FROMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_USERS1">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MESSAGES" Type="Self.MESSAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="TOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_TEACHERCLASS">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_USERS1">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTCLASS_TEACHERCLASS1">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="STUDENTCLASS" Type="Self.STUDENTCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="STUDENTCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTCLASS_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="STUDENTCLASS" Type="Self.STUDENTCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENTCLASS">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEACHERCLASS_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TEACHERCLASS">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FollowUpModel6StoreContainer">
+    <EntitySet Name="HOMEWORK" EntityType="Self.HOMEWORK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MESSAGES" EntityType="Self.MESSAGES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTES" EntityType="Self.NOTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEACHERCLASS" EntityType="Self.TEACHERCLASS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STUDENTCLASS" EntityType="Self.STUDENTCLASS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [STUDENTCLASS].[STUDENTID] AS [STUDENTID], 
+    [STUDENTCLASS].[CLASSID] AS [CLASSID], 
+    [STUDENTCLASS].[CLASSNAME] AS [CLASSNAME], 
+    [STUDENTCLASS].[CLASSPASSWORD] AS [CLASSPASSWORD], 
+    [STUDENTCLASS].[ACTIVE] AS [ACTIVE]
+    FROM [dbo].[STUDENTCLASS] AS [STUDENTCLASS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_HOMEWORK_TEACHERCLASS" Association="Self.FK_HOMEWORK_TEACHERCLASS">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="HOMEWORK" EntitySet="HOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOMEWORK_USERS" Association="Self.FK_HOMEWORK_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="HOMEWORK" EntitySet="HOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_USERS" Association="Self.FK_MESSAGES_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_USERS1" Association="Self.FK_MESSAGES_USERS1">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_TEACHERCLASS" Association="Self.FK_NOTES_TEACHERCLASS">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_USERS" Association="Self.FK_NOTES_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_USERS1" Association="Self.FK_NOTES_USERS1">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTCLASS_TEACHERCLASS1" Association="Self.FK_STUDENTCLASS_TEACHERCLASS1">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="STUDENTCLASS" EntitySet="STUDENTCLASS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTCLASS_USERS" Association="Self.FK_STUDENTCLASS_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="STUDENTCLASS" EntitySet="STUDENTCLASS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEACHERCLASS_USERS" Association="Self.FK_TEACHERCLASS_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

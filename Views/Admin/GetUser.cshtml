@@ -1,0 +1,33 @@
+﻿@model FallowUP.Models.USERS 
+@{
+    ViewBag.Title = "GetUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>GetUser</h2>
+
+@using (Html.BeginForm("UpdateUser", "Admin", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.ID )
+    <p class="text-danger">PRIMARY KEY!</p>
+    @Html.TextBoxFor(m => m.ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.NAME)
+    @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.SURNAME)
+    @Html.TextBoxFor(m => m.SURNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.EMAIL)
+    @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.PASSWORD)
+    @Html.TextBoxFor(m => m.PASSWORD, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TYPE)
+    @Html.TextBoxFor(m => m.TYPE, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+</div>
+}

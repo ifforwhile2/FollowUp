@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AddNewMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Mesaj Gönder</h2>
+
+
+<form method="post" class="form-group">
+    <div>
+        <label>HEDEF KULLANICI ID</label>
+        <input type="text" name="TOID" class="form-control" />
+    </div>
+
+    <div>
+        <label>BAŞLIK</label>
+        <input type="text" name="TITLE" class="form-control" />
+    </div>
+
+    <div>
+        <label>MESAJ</label>
+        <input type="text" name="MESSAGE" class="form-control" />
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Mesajı Gönder</button>
+    </div>
+</form>

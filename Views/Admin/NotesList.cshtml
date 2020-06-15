@@ -1,0 +1,46 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<STUDENTHOMEWORK>
+@{
+    ViewBag.Title = "NotesList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Notlar Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ÖDEV ID</td>
+        <td>ÖDEV AD</td>
+        <td>ÖĞRENCİ ID</td>
+        <td>ÖĞRENCİ AD SOYAD</td>
+        <td>ÖĞRETMEN ID</td>
+        <td>ÖĞRETMEN AD SOYAD</td>
+        <td>NOT</td>
+        <td>GÜNCELLE</td>
+        <td>SİL</td>
+    </tr>
+
+    <tbody>
+        @foreach (var notes in Model)
+        {
+        <tr>
+            <td>@notes.ID</td>
+            <td>@notes.HOMEWORKNAME</td>
+            <td>@notes.STUDENTID</td>
+            <td>@notes.STUDENTNAME @notes.STUDENTSURNAME</td>
+            <td>@notes.TEACHERID</td>
+            <td>@notes.TEACHERNAME @notes.TEACHERSURNAME</td>
+            <td>@notes.NOTE</td>
+            <td><a href="/Admin/GetNote/@notes.ID/" class="btn btn-success">GÜNCELLE</a></td>
+            <td><a href="/Admin/DeleteNote/@notes.ID/" class="btn btn-danger">SİL</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("/NotesList", new { page, @class = "" }))
+</div>
+
+<a href="/Admin/AddNewNote/" class="btn btn-primary">Yeni Not Ekle</a>

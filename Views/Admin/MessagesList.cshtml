@@ -1,0 +1,39 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MESSAGES>
+    @{
+        ViewBag.Title = "MessagesList";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+    <h2>Gelen Mesajlarım</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <td>MESAJI GÖNDEREN</td>
+            <td>TARİH</td>
+            <td>KONU BASLIGI</td>
+            <td>OKU</td>
+            <td>SİL</td>
+        </tr>
+
+        <tbody>
+            @foreach (var msj in Model)
+            {
+            <tr>
+                <td>@msj.FROMMAIL / @msj.FROMNAME @msj.FROMSURNAME</td>
+                <td>@msj.DATE</td>
+                <td>@msj.TITLE</td>
+                <td><a href="/Admin/GetMessage/@msj.MESSAGEID" class="btn btn-success">OKU</a></td>
+                <td><a href="/Admin/DeleteMessage/@msj.MESSAGEID" class="btn btn-danger">SİL</a></td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div class="">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("/MessagesList", new { page, @class = "" }))
+    </div>
+
+    <a href="/Admin/AddNewMessage/" class="btn btn-primary">Yeni Mesaj Gönder</a>

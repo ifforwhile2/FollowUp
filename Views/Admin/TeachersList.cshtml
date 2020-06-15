@@ -1,0 +1,91 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<USERS>
+@{
+    ViewBag.Title = "TeachersList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Öğretmenler Listesi</h2>
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>AD</td>
+        <td>SOYAD</td>
+        <td>EMAIL</td>
+        <td>ŞİFRE</td>
+        <td>TYPE</td>
+        <td>GÜNCELLE</td>
+        <td>SİL</td>
+    </tr>
+
+    <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.ID</td>
+            <td>@user.NAME</td>
+            <td>@user.SURNAME</td>
+            <td>@user.EMAIL</td>
+            <td>@user.PASSWORD</td>
+            <td>@user.TYPE</td>
+            <td><a href="/Admin/GetUser/@user.ID" class="btn btn-success">GÜNCELLE</a></td>
+            @*/Admin/GetUser/@user.ID*@
+            @*<div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">GÜNCELLE</h2>
+                    </div>
+                    <form action="/" method="post">
+                        <div class="modal-body">
+                            <label>
+                                ID
+                            </label>
+                            <input type="text" name="ID" class="form-control" />
+                            <br />
+                            <label>
+                                AD
+                            </label>
+                            <input type="text" name="NAME" class="form-control" />
+                            <br />
+                            <label>
+                                SOYAD
+                            </label>
+                            <input type="text" name="SURNAME" class="form-control" />
+                            <br />
+                            <label>
+                                EMAIL
+                            </label>
+                            <input type="text" name="EMAIL" class="form-control" />
+                            <br />
+                            <label>
+                                ŞİFRE
+                            </label>
+                            <input type="text" name="PASSWORD" class="form-control" />
+                            <br />
+                            <label>
+                                TYPE
+                            </label>
+                            <input type="text" name="TYPE" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">GÜNCELLE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>*@
+            <td><a href="/Admin/DeleteUser/@user.ID" class="btn btn-danger">SİL</a></td>
+        </tr>
+            }
+    </tbody>
+</table>
+<div class="">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("/TeachersList", new { page, @class = "" }))
+</div>
+
+<a href="/Admin/AddNewUser/" class="btn btn-primary">Yeni Kullanıcı Ekle</a>

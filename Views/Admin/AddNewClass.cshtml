@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "AddNewClass";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Yeni Sınıf Ekle</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>DERS ADI</label>
+        <input type="text" name="NAME" class="form-control" />
+    </div>
+
+    <div>
+        <label>DERS ŞİFRESİ</label>
+        <input type="text" name="PASSWORD" class="form-control" />
+    </div>
+
+    <div>
+        <label>ÖĞRETMEN ID</label>
+        <input type="text" name="TEACHERID" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Sınıf Ekle</button>
+    </div>
+</form>

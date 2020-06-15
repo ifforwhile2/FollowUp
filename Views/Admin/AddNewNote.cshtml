@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "AddNewNote";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Yeni Note Ekle</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>ÖDEV AD</label>
+        <input type="text" name="HOMEWORKNAME" class="form-control" />
+    </div>
+
+    <div>
+        <label>ÖĞRENCİ ID</label>
+        <input type="text" name="STUDENTID" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRENCİ AD</label>
+        <input type="text" name="STUDENTNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRENCİ SOYAD</label>
+        <input type="text" name="STUDENTSURNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN ID</label>
+        <input type="text" name="TEACHERID" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN AD</label>
+        <input type="text" name="TEACHERNAME" class="form-control" />
+    </div>
+    <div>
+        <label>ÖĞRETMEN S0YAD</label>
+        <input type="text" name="TEACHERSURNAME" class="form-control" />
+    </div>
+    <div>
+        <label>DERS ID</label>
+        <input type="text" name="CLASSID" class="form-control" />
+    </div>
+    <div>
+        <label>NOT</label>
+        <input type="text" name="NOTE" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Not Ekle</button>
+    </div>
+</form>

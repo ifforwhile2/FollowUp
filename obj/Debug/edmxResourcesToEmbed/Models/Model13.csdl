@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FollowUpModel12" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HOMEWORK">
+    <Key>
+      <PropertyRef Name="HOMEWORKID" />
+    </Key>
+    <Property Name="HOMEWORKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLASSID" Type="Int32" Nullable="false" />
+    <Property Name="TEACHERID" Type="Int32" Nullable="false" />
+    <Property Name="HOMEWORKNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STARTDATE" Type="DateTime" Precision="0" />
+    <Property Name="FINISHDATE" Type="DateTime" Precision="0" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="TEACHERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TEACHERSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLASSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOMEWORK1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TEACHERCLASS" Relationship="Self.FK_HOMEWORK_TEACHERCLASS" FromRole="HOMEWORK" ToRole="TEACHERCLASS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_HOMEWORK_USERS" FromRole="HOMEWORK" ToRole="USERS" />
+    <NavigationProperty Name="STUDENTHOMEWORK" Relationship="Self.FK_STUDENTHOMEWORK_HOMEWORK" FromRole="HOMEWORK" ToRole="STUDENTHOMEWORK" />
+  </EntityType>
+  <EntityType Name="MESSAGES">
+    <Key>
+      <PropertyRef Name="MESSAGEID" />
+    </Key>
+    <Property Name="MESSAGEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FROMID" Type="Int32" Nullable="false" />
+    <Property Name="TOID" Type="Int32" Nullable="false" />
+    <Property Name="MESSAGE" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="TIME" Type="Time" Precision="7" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FROMNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FROMSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FROMMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_MESSAGES_USERS" FromRole="MESSAGES" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="Self.FK_MESSAGES_USERS1" FromRole="MESSAGES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="NOTES">
+    <Key>
+      <PropertyRef Name="NOTEID" />
+    </Key>
+    <Property Name="NOTEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STUDENTID" Type="Int32" Nullable="false" />
+    <Property Name="NOTE" Type="Int32" Nullable="false" />
+    <Property Name="CLASSID" Type="Int32" Nullable="false" />
+    <Property Name="TEACHERID" Type="Int32" Nullable="false" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TEACHERCLASS" Relationship="Self.FK_NOTES_TEACHERCLASS" FromRole="NOTES" ToRole="TEACHERCLASS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_NOTES_USERS" FromRole="NOTES" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="Self.FK_NOTES_USERS1" FromRole="NOTES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="STUDENTCLASS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="STUDENTID" Type="Int32" Nullable="false" />
+    <Property Name="CLASSID" Type="Int32" Nullable="false" />
+    <Property Name="CLASSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLASSPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTIVE" Type="Boolean" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TEACHERCLASS" Relationship="Self.FK_STUDENTCLASS_TEACHERCLASS" FromRole="STUDENTCLASS" ToRole="TEACHERCLASS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_STUDENTCLASS_USERS" FromRole="STUDENTCLASS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="STUDENTHOMEWORK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STUDENTID" Type="Int32" Nullable="false" />
+    <Property Name="HOMEWORKID" Type="Int32" />
+    <Property Name="TEACHERID" Type="Int32" />
+    <Property Name="TEACHERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TEACHERSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STARTDATE" Type="DateTime" Precision="0" />
+    <Property Name="STARTTIME" Type="Time" Precision="7" />
+    <Property Name="ENDDATE" Type="DateTime" Precision="0" />
+    <Property Name="ENDTIME" Type="Time" Precision="7" />
+    <Property Name="NOTE" Type="Int32" />
+    <Property Name="HOMEWORK" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="HOMEWORKNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLASSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLASSID" Type="Int32" />
+    <NavigationProperty Name="HOMEWORK1" Relationship="Self.FK_STUDENTHOMEWORK_HOMEWORK" FromRole="STUDENTHOMEWORK" ToRole="HOMEWORK" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_STUDENTHOMEWORK_USERS" FromRole="STUDENTHOMEWORK" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="Self.FK_STUDENTHOMEWORK_USERS1" FromRole="STUDENTHOMEWORK" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TEACHERCLASS">
+    <Key>
+      <PropertyRef Name="CLASSID" />
+    </Key>
+    <Property Name="CLASSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TEACHERID" Type="Int32" Nullable="false" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="TEACHERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TEACHERSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HOMEWORK" Relationship="Self.FK_HOMEWORK_TEACHERCLASS" FromRole="TEACHERCLASS" ToRole="HOMEWORK" />
+    <NavigationProperty Name="NOTES" Relationship="Self.FK_NOTES_TEACHERCLASS" FromRole="TEACHERCLASS" ToRole="NOTES" />
+    <NavigationProperty Name="STUDENTCLASS" Relationship="Self.FK_STUDENTCLASS_TEACHERCLASS" FromRole="TEACHERCLASS" ToRole="STUDENTCLASS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_TEACHERCLASS_USERS" FromRole="TEACHERCLASS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TYPE" Type="Int32" Nullable="false" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HOMEWORK" Relationship="Self.FK_HOMEWORK_USERS" FromRole="USERS" ToRole="HOMEWORK" />
+    <NavigationProperty Name="MESSAGES" Relationship="Self.FK_MESSAGES_USERS" FromRole="USERS" ToRole="MESSAGES" />
+    <NavigationProperty Name="MESSAGES1" Relationship="Self.FK_MESSAGES_USERS1" FromRole="USERS" ToRole="MESSAGES" />
+    <NavigationProperty Name="NOTES" Relationship="Self.FK_NOTES_USERS" FromRole="USERS" ToRole="NOTES" />
+    <NavigationProperty Name="NOTES1" Relationship="Self.FK_NOTES_USERS1" FromRole="USERS" ToRole="NOTES" />
+    <NavigationProperty Name="STUDENTCLASS" Relationship="Self.FK_STUDENTCLASS_USERS" FromRole="USERS" ToRole="STUDENTCLASS" />
+    <NavigationProperty Name="STUDENTHOMEWORK" Relationship="Self.FK_STUDENTHOMEWORK_USERS" FromRole="USERS" ToRole="STUDENTHOMEWORK" />
+    <NavigationProperty Name="STUDENTHOMEWORK1" Relationship="Self.FK_STUDENTHOMEWORK_USERS1" FromRole="USERS" ToRole="STUDENTHOMEWORK" />
+    <NavigationProperty Name="TEACHERCLASS" Relationship="Self.FK_TEACHERCLASS_USERS" FromRole="USERS" ToRole="TEACHERCLASS" />
+  </EntityType>
+  <Association Name="FK_HOMEWORK_TEACHERCLASS">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="HOMEWORK" Type="Self.HOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="HOMEWORK">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOMEWORK_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="HOMEWORK" Type="Self.HOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HOMEWORK">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTHOMEWORK_HOMEWORK">
+    <End Role="HOMEWORK" Type="Self.HOMEWORK" Multiplicity="0..1" />
+    <End Role="STUDENTHOMEWORK" Type="Self.STUDENTHOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOMEWORK">
+        <PropertyRef Name="HOMEWORKID" />
+      </Principal>
+      <Dependent Role="STUDENTHOMEWORK">
+        <PropertyRef Name="HOMEWORKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MESSAGES" Type="Self.MESSAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="FROMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_USERS1">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MESSAGES" Type="Self.MESSAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="TOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_TEACHERCLASS">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_USERS1">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTCLASS_TEACHERCLASS">
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="1" />
+    <End Role="STUDENTCLASS" Type="Self.STUDENTCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Principal>
+      <Dependent Role="STUDENTCLASS">
+        <PropertyRef Name="CLASSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTCLASS_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="STUDENTCLASS" Type="Self.STUDENTCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENTCLASS">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTHOMEWORK_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="STUDENTHOMEWORK" Type="Self.STUDENTHOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENTHOMEWORK">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTHOMEWORK_USERS1">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+    <End Role="STUDENTHOMEWORK" Type="Self.STUDENTHOMEWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENTHOMEWORK">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEACHERCLASS_USERS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="TEACHERCLASS" Type="Self.TEACHERCLASS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TEACHERCLASS">
+        <PropertyRef Name="TEACHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FollowUpEntities14" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HOMEWORK" EntityType="Self.HOMEWORK" />
+    <EntitySet Name="MESSAGES" EntityType="Self.MESSAGES" />
+    <EntitySet Name="NOTES" EntityType="Self.NOTES" />
+    <EntitySet Name="STUDENTCLASS" EntityType="Self.STUDENTCLASS" />
+    <EntitySet Name="STUDENTHOMEWORK" EntityType="Self.STUDENTHOMEWORK" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TEACHERCLASS" EntityType="Self.TEACHERCLASS" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" />
+    <AssociationSet Name="FK_HOMEWORK_TEACHERCLASS" Association="Self.FK_HOMEWORK_TEACHERCLASS">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="HOMEWORK" EntitySet="HOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOMEWORK_USERS" Association="Self.FK_HOMEWORK_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="HOMEWORK" EntitySet="HOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTHOMEWORK_HOMEWORK" Association="Self.FK_STUDENTHOMEWORK_HOMEWORK">
+      <End Role="HOMEWORK" EntitySet="HOMEWORK" />
+      <End Role="STUDENTHOMEWORK" EntitySet="STUDENTHOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_USERS" Association="Self.FK_MESSAGES_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_USERS1" Association="Self.FK_MESSAGES_USERS1">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_TEACHERCLASS" Association="Self.FK_NOTES_TEACHERCLASS">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_USERS" Association="Self.FK_NOTES_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_USERS1" Association="Self.FK_NOTES_USERS1">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTCLASS_TEACHERCLASS" Association="Self.FK_STUDENTCLASS_TEACHERCLASS">
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+      <End Role="STUDENTCLASS" EntitySet="STUDENTCLASS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTCLASS_USERS" Association="Self.FK_STUDENTCLASS_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="STUDENTCLASS" EntitySet="STUDENTCLASS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTHOMEWORK_USERS" Association="Self.FK_STUDENTHOMEWORK_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="STUDENTHOMEWORK" EntitySet="STUDENTHOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTHOMEWORK_USERS1" Association="Self.FK_STUDENTHOMEWORK_USERS1">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="STUDENTHOMEWORK" EntitySet="STUDENTHOMEWORK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEACHERCLASS_USERS" Association="Self.FK_TEACHERCLASS_USERS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TEACHERCLASS" EntitySet="TEACHERCLASS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "AddNewUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Yeni Kullanıcı Ekle</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>AD</label>
+        <input type="text" name="NAME" class="form-control" />
+    </div>
+
+    <div>
+        <label>SOYAD</label>
+        <input type="text" name="SURNAME" class="form-control" />
+    </div>
+
+    <div>
+        <label>EMAIL</label>
+        <input type="text" name="EMAIL" class="form-control" />
+    </div>
+
+    <div>
+        <label>ŞİFRE</label>
+        <input type="text" name="PASSWORD" class="form-control" />
+    </div>
+
+    <div>
+        <label>TYPE (ADMIN: 1, ÖĞRETMEN: 2, ÖĞRENCİ: 3)</label>
+        <input type="text" name="TYPE" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Kullanıcı Ekle</button>
+    </div>
+</form>

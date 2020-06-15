@@ -1,0 +1,42 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TEACHERCLASS>
+@{
+    ViewBag.Title = "ClassesList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sınıflar Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td align="center"><b>DERS ID</b></td>
+        <td align="center"><b>DERS ADI</b></td>
+        <td align="center"><b>DERS ŞİFRESİ</b></td>
+        <td align="center"><b>ÖĞRETMEN ID</b></td>
+        <td align="center"><b>ÖĞRETMEN</b></td>
+        <td align="center"><b>GÜNCELLE</b></td>
+        <td align="center"><b>SİL</b></td>
+    </tr>
+
+    <tbody>
+        @foreach (var clas in Model)
+        {
+        <tr>
+            <td>@clas.CLASSID</td>
+            <td>@clas.NAME</td>
+            <td>@clas.PASSWORD</td>
+            <td>@clas.TEACHERID</td>
+            <td>@clas.TEACHERNAME @clas.TEACHERSURNAME</td>
+            <td align="center"><a href="/Admin/GetClass/@clas.CLASSID" class="btn btn-success">GÜNCELLE</a></td>
+            <td align="center"><a href="/Admin/DeleteClass/@clas.CLASSID" class="btn btn-danger">SİL</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("/ClassesList", new { page, @class = "" }))
+</div>
+
+<a href="/Admin/AddNewClass/" class="btn btn-primary">Yeni Sınıf Ekle</a>

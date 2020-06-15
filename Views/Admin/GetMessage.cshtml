@@ -1,0 +1,14 @@
+﻿@model FallowUP.Models.MESSAGES
+@{
+    ViewBag.Title = "GetMessage";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Gelen Mesajım</h2>
+<br />
+<div><p>@ViewData["frommail"] - @ViewData["fromname"] @ViewData["fromsurname"] - @ViewData["date"]</p></div>
+<hr />
+<div><p><b>@ViewData["title"]</b></p></div>
+<div><p>@ViewData["msj"]</p></div>
+<hr />
+<div><button class="btn btn-warning" href="/Admin/MessageList/">GERİ</button></div> 

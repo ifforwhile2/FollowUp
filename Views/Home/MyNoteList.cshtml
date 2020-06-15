@@ -1,0 +1,34 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<STUDENTHOMEWORK>
+@{
+    ViewBag.Title = "MyNoteList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Notlarım</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td align="center"><b> DERS ADI</b></td>
+        <td align="center"><b> ÖDEV ADI</b></td>
+        <td align="center"><b> NOT</b></td>
+    </tr>
+
+    <tbody>
+        @foreach (var note in Model)
+        {
+        <tr>
+            <td>@note.CLASSNAME</td>
+            <td>@note.HOMEWORKNAME</td>
+            <td>@note.NOTE</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("/MyNoteList", new { page, @class = "" }))
+</div>
+

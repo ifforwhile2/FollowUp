@@ -1,0 +1,44 @@
+﻿@model FallowUP.Models.HOMEWORK
+@{
+    ViewBag.Title = "GetHomework";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Ödevi Düzenle</h2>
+
+@using (Html.BeginForm("UpdateHomework", "Admin", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.HOMEWORKID)
+    <p class="text-danger">PRIMARY KEY!</p>
+    @Html.TextBoxFor(m => m.HOMEWORKID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.CLASSID)
+    <p class="text-danger">PRIMARY KEY!</p>
+    @Html.TextBoxFor(m => m.CLASSID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.CLASSNAME)
+    @Html.TextBoxFor(m => m.CLASSNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERID)
+    <p class="text-danger">PRIMARY KEY!</p>
+    @Html.TextBoxFor(m => m.TEACHERID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERNAME)
+    @Html.TextBoxFor(m => m.TEACHERNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERSURNAME)
+    @Html.TextBoxFor(m => m.TEACHERSURNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.HOMEWORKNAME)
+    @Html.TextBoxFor(m => m.HOMEWORKNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.STARTDATE)
+    @Html.TextBoxFor(m => m.STARTDATE, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.FINISHDATE)
+    @Html.TextBoxFor(m => m.FINISHDATE, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+</div>
+}

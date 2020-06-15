@@ -1,0 +1,33 @@
+﻿@using FallowUP.Models;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<STUDENTCLASS>
+@{
+    ViewBag.Title = "MyClassList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Derslerim</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td align="center"><b> DERS ID</b></td>
+        <td align="center"><b> DERS ADI</b></td>
+    </tr>
+
+    <tbody>
+        @foreach (var clas in Model)
+        {
+            <tr>
+                <td>@clas.CLASSID</td>
+                <td>@clas.CLASSNAME</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("/MyClassesList", new { page, @class = "" }))
+</div>
+
+<a href="/Home/AddNewClass/" class="btn btn-primary">Yeni Derse Katıl</a>

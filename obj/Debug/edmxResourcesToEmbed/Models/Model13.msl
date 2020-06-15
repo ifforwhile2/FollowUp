@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FollowUpModel12StoreContainer" CdmEntityContainer="FollowUpEntities14">
+    <EntitySetMapping Name="HOMEWORK">
+      <EntityTypeMapping TypeName="FollowUpModel12.HOMEWORK">
+        <MappingFragment StoreEntitySet="HOMEWORK">
+          <ScalarProperty Name="HOMEWORKID" ColumnName="HOMEWORKID" />
+          <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+          <ScalarProperty Name="TEACHERID" ColumnName="TEACHERID" />
+          <ScalarProperty Name="HOMEWORKNAME" ColumnName="HOMEWORKNAME" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="FINISHDATE" ColumnName="FINISHDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="TEACHERNAME" ColumnName="TEACHERNAME" />
+          <ScalarProperty Name="TEACHERSURNAME" ColumnName="TEACHERSURNAME" />
+          <ScalarProperty Name="CLASSNAME" ColumnName="CLASSNAME" />
+          <ScalarProperty Name="HOMEWORK1" ColumnName="HOMEWORK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESSAGES">
+      <EntityTypeMapping TypeName="FollowUpModel12.MESSAGES">
+        <MappingFragment StoreEntitySet="MESSAGES">
+          <ScalarProperty Name="MESSAGEID" ColumnName="MESSAGEID" />
+          <ScalarProperty Name="FROMID" ColumnName="FROMID" />
+          <ScalarProperty Name="TOID" ColumnName="TOID" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="FROMNAME" ColumnName="FROMNAME" />
+          <ScalarProperty Name="FROMSURNAME" ColumnName="FROMSURNAME" />
+          <ScalarProperty Name="FROMMAIL" ColumnName="FROMMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOTES">
+      <EntityTypeMapping TypeName="FollowUpModel12.NOTES">
+        <MappingFragment StoreEntitySet="NOTES">
+          <ScalarProperty Name="NOTEID" ColumnName="NOTEID" />
+          <ScalarProperty Name="STUDENTID" ColumnName="STUDENTID" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+          <ScalarProperty Name="TEACHERID" ColumnName="TEACHERID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENTCLASS">
+      <EntityTypeMapping TypeName="FollowUpModel12.STUDENTCLASS">
+        <MappingFragment StoreEntitySet="STUDENTCLASS">
+          <ScalarProperty Name="STUDENTID" ColumnName="STUDENTID" />
+          <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+          <ScalarProperty Name="CLASSNAME" ColumnName="CLASSNAME" />
+          <ScalarProperty Name="CLASSPASSWORD" ColumnName="CLASSPASSWORD" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENTHOMEWORK">
+      <EntityTypeMapping TypeName="FollowUpModel12.STUDENTHOMEWORK">
+        <MappingFragment StoreEntitySet="STUDENTHOMEWORK">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="STUDENTID" ColumnName="STUDENTID" />
+          <ScalarProperty Name="HOMEWORKID" ColumnName="HOMEWORKID" />
+          <ScalarProperty Name="TEACHERID" ColumnName="TEACHERID" />
+          <ScalarProperty Name="TEACHERNAME" ColumnName="TEACHERNAME" />
+          <ScalarProperty Name="TEACHERSURNAME" ColumnName="TEACHERSURNAME" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="STARTTIME" ColumnName="STARTTIME" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="HOMEWORK" ColumnName="HOMEWORK" />
+          <ScalarProperty Name="HOMEWORKNAME" ColumnName="HOMEWORKNAME" />
+          <ScalarProperty Name="STUDENTNAME" ColumnName="STUDENTNAME" />
+          <ScalarProperty Name="STUDENTSURNAME" ColumnName="STUDENTSURNAME" />
+          <ScalarProperty Name="CLASSNAME" ColumnName="CLASSNAME" />
+          <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FollowUpModel12.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEACHERCLASS">
+      <EntityTypeMapping TypeName="FollowUpModel12.TEACHERCLASS">
+        <MappingFragment StoreEntitySet="TEACHERCLASS">
+          <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="TEACHERID" ColumnName="TEACHERID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="TEACHERNAME" ColumnName="TEACHERNAME" />
+          <ScalarProperty Name="TEACHERSURNAME" ColumnName="TEACHERSURNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="FollowUpModel12.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

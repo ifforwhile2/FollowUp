@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AddNewClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Sınıfa Katıl</h2>
+
+
+<form method="post" class="form-group">
+    <div>
+        <label>DERS ID</label>
+        <input type="text" name="CLASSID" class="form-control" />
+    </div>
+
+    <div>
+        <label>DERS ŞİFRESİ</label>
+        <input type="text" name="CLASSPASSWORD" class="form-control" />
+    </div>
+
+    <div>
+        @ViewData["Error"]
+    </div>
+    
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Derse Katıl</button>
+    </div>
+</form>

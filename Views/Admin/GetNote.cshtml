@@ -1,0 +1,43 @@
+﻿@model FallowUP.Models.STUDENTHOMEWORK
+
+@{
+    ViewBag.Title = "GetNote";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>GetNote</h2>
+
+@using (Html.BeginForm("UpdateNote", "Admin", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.ID)
+    <p class="text-danger">PRIMARY KEY!</p>
+    @Html.TextBoxFor(m => m.ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.HOMEWORKNAME)
+    @Html.TextBoxFor(m => m.HOMEWORKNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.STUDENTID)
+    @Html.TextBoxFor(m => m.STUDENTID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.STUDENTNAME)
+    @Html.TextBoxFor(m => m.STUDENTNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.STUDENTSURNAME)
+    @Html.TextBoxFor(m => m.STUDENTSURNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERID)
+    @Html.TextBoxFor(m => m.TEACHERID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERNAME)
+    @Html.TextBoxFor(m => m.TEACHERNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TEACHERSURNAME)
+    @Html.TextBoxFor(m => m.TEACHERSURNAME, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.NOTE)
+    @Html.TextBoxFor(m => m.NOTE, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+</div>
+}
